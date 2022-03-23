@@ -20,7 +20,8 @@ Pod::Spec.new do |s|
   s.platforms    = { :ios => "9.0" }
   s.source       = { :git => "https://github.com/github_account/react-native-push.git", :tag => "#{s.version}" }
 
-  s.source_files = "ios/**/*.{h,c,cc,cpp,m,mm,swift}"
+  s.source_files    = 'ios/*.{h,m}'
+  s.ios.vendored_libraries = 'ios/*.a'
   s.requires_arc = true
 
   s.dependency "React"
