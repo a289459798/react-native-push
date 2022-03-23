@@ -1,9 +1,41 @@
 {
-  "name": "react-native-push",
-  "title": "React Native Push",
-  "version": "1.0.0",
+  "_from": "github:a289459798/react-native-push",
+  "_id": "react-native-push@1.0.0",
+  "_inBundle": false,
+  "_integrity": "",
+  "_location": "/react-native-push",
+  "_phantomChildren": {},
+  "_requested": {
+    "type": "git",
+    "raw": "react-native-push@github:a289459798/react-native-push",
+    "name": "react-native-push",
+    "escapedName": "react-native-push",
+    "rawSpec": "github:a289459798/react-native-push",
+    "saveSpec": "github:a289459798/react-native-push",
+    "fetchSpec": null,
+    "gitCommittish": null
+  },
+  "_requiredBy": [
+    "#USER",
+    "/"
+  ],
+  "_resolved": "github:a289459798/react-native-push#2d4c91a330e0872f65374baed1a6d91d961316e4",
+  "_spec": "react-native-push@github:a289459798/react-native-push",
+  "_where": "/Users/zhabgzy/Workspace/react-native/push",
+  "author": {
+    "name": "Your Name",
+    "email": "yourname@email.com"
+  },
+  "bugs": {
+    "url": "https://github.com/github_account/react-native-push/issues"
+  },
+  "bundleDependencies": false,
+  "deprecated": false,
   "description": "TODO",
-  "main": "index.js",
+  "devDependencies": {
+    "react": "^16.9.0",
+    "react-native": "^0.61.5"
+  },
   "files": [
     "README.md",
     "android",
@@ -11,30 +43,27 @@
     "ios",
     "react-native-push.podspec"
   ],
-  "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+  "homepage": "https://github.com/github_account/react-native-push#readme",
+  "keywords": [
+    "react-native"
+  ],
+  "license": "MIT",
+  "licenseFilename": "LICENSE",
+  "main": "index.js",
+  "name": "react-native-push",
+  "peerDependencies": {
+    "react": ">=16.8.1",
+    "react-native": ">=0.60.0-rc.0 <1.0.x",
+    "@react-native-community/push-notification-ios": "^1.10.1"
   },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/github_account/react-native-push.git",
     "baseUrl": "https://github.com/github_account/react-native-push"
   },
-  "keywords": [
-    "react-native"
-  ],
-  "author": {
-    "name": "Your Name",
-    "email": "yourname@email.com"
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
   },
-  "license": "MIT",
-  "licenseFilename": "LICENSE",
-  "readmeFilename": "README.md",
-  "peerDependencies": {
-    "react": ">=16.8.1",
-    "react-native": ">=0.60.0-rc.0 <1.0.x"
-  },
-  "devDependencies": {
-    "react": "^16.9.0",
-    "react-native": "^0.61.5"
-  }
+  "title": "React Native Push",
+  "version": "1.0.0"
 }
