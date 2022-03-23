@@ -1,4 +1,4 @@
-// RCTJJPushModule.h
+// RNJJPush.h
 #import <Foundation/Foundation.h>
 #import <UIKit/UIKit.h>
 #import <UserNotifications/UserNotifications.h>
@@ -6,7 +6,7 @@
 #import "MiPushSDK.h"
 #import <RNCPushNotificationIOS.h>
 
-@interface RCTJJPushModule : RCTEventEmitter <RCTBridgeModule, MiPushSDKDelegate>
+@interface RNJJPush : RCTEventEmitter <RCTBridgeModule, MiPushSDKDelegate>
 
 + (void)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions;
 

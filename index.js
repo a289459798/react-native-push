@@ -54,7 +54,6 @@ class JJPush extends NativeEventEmitter {
      * @param text
      */
     setAlias(text) {
-
         RNJJPush.setAlias(text);
     }
 
@@ -63,7 +62,6 @@ class JJPush extends NativeEventEmitter {
      * @param text
      */
     unsetAlias(text) {
-
         RNJJPush.unsetAlias(text);
     }
 
@@ -72,7 +70,6 @@ class JJPush extends NativeEventEmitter {
      * @param text
      */
     setTag(text) {
-
         RNJJPush.setTag(text);
     }
 
@@ -81,7 +78,6 @@ class JJPush extends NativeEventEmitter {
      * @param text
      */
     unsetTag(text) {
-
         RNJJPush.unsetTag(text);
     }
 
@@ -102,6 +98,14 @@ class JJPush extends NativeEventEmitter {
         if (Platform.OS == 'ios') {
             switch (type) {
                 case 'notification':
+                case 'jjpush_notify':
+                    if (type == 'jjpush_notify') {
+                        type = 'notification'
+                    }
+                    PushNotificationIOS.addEventListener(type, (res) => {
+                        handler && handler(res._data);
+                    });
+                    break;
                 case 'localNotification':
                 case 'register':
                     PushNotificationIOS.addEventListener(type, handler);
@@ -111,7 +115,9 @@ class JJPush extends NativeEventEmitter {
                     break;
             }
         } else {
-            this.addListener(type, handler);
+            this.addListener(type, (res) => {
+                handler && handler(JSON.parse(res));
+            });
         }
     }
 
@@ -139,10 +145,12 @@ class JJPush extends NativeEventEmitter {
     getInitialNotification(handler) {
         if (Platform.OS == 'ios') {
             PushNotificationIOS.getInitialNotification()
-                .then(handler);
+                .then((res) => {
+                    handler && handler(res._data);
+                });
         } else {
-            RNJJPush.getInitialNotification()
-                .then(handler);
+            // RNJJPush.getInitialNotification()
+            //     .then(handler);
         }
     }
 }

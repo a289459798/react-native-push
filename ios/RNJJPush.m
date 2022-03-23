@@ -1,47 +1,33 @@
-// ReactNativePush.m
+// RNJJPush.m
 
-#import "RCTJJPushModule.h"
+#import "RNJJPush.h"
 
 
-@implementation RCTJJPushModule
+@implementation RNJJPush
 
 RCT_EXPORT_MODULE()
 
 RCT_EXPORT_METHOD(setAlias:(NSString *)text)
 {
     
-    
     [MiPushSDK setAlias:text];
 }
 
 RCT_EXPORT_METHOD(unsetAlias:(NSString *)text)
 {
-    
     [MiPushSDK unsetAlias:text];
 }
 
-RCT_EXPORT_METHOD(subscribe:(NSString *)text)
+RCT_EXPORT_METHOD(setTag:(NSString *)text)
 {
     
     [MiPushSDK subscribe:text];
 }
 
-RCT_EXPORT_METHOD(unsubscribe:(NSString *)text)
+RCT_EXPORT_METHOD(unsetTag:(NSString *)text)
 {
     
     [MiPushSDK unsubscribe:text];
-}
-
-RCT_EXPORT_METHOD(setAccount:(NSString *)text)
-{
-    
-    [MiPushSDK setAccount:text];
-}
-
-RCT_EXPORT_METHOD(unsetAccount:(NSString *)text)
-{
-    
-    [MiPushSDK unsetAccount:text];
 }
 
 - (void)miPushRequestSuccWithSelector:(NSString *)selector data:(NSDictionary *)data
@@ -84,7 +70,7 @@ RCT_EXPORT_METHOD(unsetAccount:(NSString *)text)
 + (void)application:(UIApplication *)application didReceiveLocalNotification:(UILocalNotification *)notification {
 
     [RNCPushNotificationIOS didReceiveLocalNotification:notification];
-    [[NSNotificationCenter defaultCenter] postNotificationName:@"xmpush_click" object:notification.userInfo];
+    [[NSNotificationCenter defaultCenter] postNotificationName:@"jjpush_click" object:notification.userInfo];
 }
 
 // 应用在前台收到通知
@@ -103,7 +89,7 @@ RCT_EXPORT_METHOD(unsetAccount:(NSString *)text)
     if([response.notification.request.trigger isKindOfClass:[UNPushNotificationTrigger class]]) {
         [RNCPushNotificationIOS didReceiveRemoteNotification:userInfo];
     }
-    [[NSNotificationCenter defaultCenter] postNotificationName:@"xmpush_click" object:userInfo];
+    [[NSNotificationCenter defaultCenter] postNotificationName:@"jjpush_click" object:userInfo];
     completionHandler();
 }
 
@@ -116,7 +102,7 @@ RCT_EXPORT_METHOD(unsetAccount:(NSString *)text)
 {
     [[NSNotificationCenter defaultCenter] addObserver:self
                                              selector:@selector(handleSend:)
-                                                 name:@"xmpush_click"
+                                                 name:@"jjpush_click"
                                                object:nil];
 
 }
@@ -130,7 +116,7 @@ RCT_EXPORT_METHOD(unsetAccount:(NSString *)text)
     NSMutableArray *arr = [[NSMutableArray alloc] init];
 
     [arr addObject:@"jjpush_click"];
-
+    
     return arr;
 }
 
