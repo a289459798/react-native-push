@@ -49,4 +49,22 @@ public class RNJJPushModule extends ReactContextBaseJavaModule {
             e.printStackTrace();
         }
     }
+
+    @ReactMethod
+    public void setTag(String tag) {
+        try {
+            push.setTag(tag);
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
+
+    @ReactMethod
+    public void unsetTag(String tag) {
+        try {
+            push.unsetTag(tag);
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
 }

@@ -57,6 +57,16 @@ public class Hms extends BasePush {
         hmsMessaging.unsubscribe(alias);
     }
 
+    @Override
+    public void setTag(String tag) {
+        hmsMessaging.subscribe(tag);
+    }
+
+    @Override
+    public void unsetTag(String tag) {
+        hmsMessaging.unsubscribe(tag);
+    }
+
     private void updateHMS(ApiException e) {
         if (e instanceof ResolvableApiException) {
             PendingIntent resolution = ((ResolvableApiException) e).getResolution();

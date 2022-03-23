@@ -68,6 +68,24 @@ class JJPush extends NativeEventEmitter {
     }
 
     /**
+     * 设置标签
+     * @param text
+     */
+    setTag(text) {
+
+        RNJJPush.setTag(text);
+    }
+
+    /**
+     * 注销标签
+     * @param text
+     */
+    unsetTag(text) {
+
+        RNJJPush.unsetTag(text);
+    }
+
+    /**
      *
      * @param type
      * ios :
