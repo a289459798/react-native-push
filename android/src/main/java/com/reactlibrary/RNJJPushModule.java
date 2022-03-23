@@ -5,6 +5,7 @@ package com.reactlibrary;
 import com.facebook.react.bridge.*;
 import com.reactlibrary.push.BasePush;
 import com.reactlibrary.push.Hms;
+import com.reactlibrary.push.XM;
 
 public class RNJJPushModule extends ReactContextBaseJavaModule {
 
@@ -24,7 +25,7 @@ public class RNJJPushModule extends ReactContextBaseJavaModule {
     @ReactMethod
     public void init(ReadableMap readableMap) {
         try {
-            push = new Hms(reactContext);
+            push = new XM(reactContext);
             push.init();
 
         } catch (Exception e) {

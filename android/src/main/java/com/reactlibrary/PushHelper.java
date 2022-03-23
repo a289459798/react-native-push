@@ -41,7 +41,7 @@ public class PushHelper {
 
         if (appInfo != null && appInfo.metaData != null && appInfo.metaData.containsKey(key)) {
 
-            return appInfo.metaData.get(key);
+            return String.valueOf(appInfo.metaData.get(key));
         } else {
             return "";
         }

@@ -18,3 +18,15 @@
 -keep class com.huawei.hianalytics.**{*;}
 -keep class com.huawei.updatesdk.**{*;}
 -keep class com.huawei.hms.**{*;}
+
+
+-keep public class * extends android.app.Service
+-keep class com.heytap.msp.** { *;}
+
+-dontwarn com.vivo.push.**
+
+-keep class com.vivo.push.**{*; }
+
+-keep class com.vivo.vms.**{*; }
+
+-keep class com.reactlibrary.receive.VivoPushMessageReceiverImpl{*;}
