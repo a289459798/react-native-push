@@ -2,10 +2,13 @@
 
 package com.reactlibrary;
 
+import android.util.Log;
 import com.facebook.react.bridge.*;
 import com.reactlibrary.push.BasePush;
 import com.reactlibrary.push.Hms;
 import com.reactlibrary.push.XM;
+
+import java.util.Locale;
 
 public class RNJJPushModule extends ReactContextBaseJavaModule {
 
@@ -25,7 +28,16 @@ public class RNJJPushModule extends ReactContextBaseJavaModule {
     @ReactMethod
     public void init(ReadableMap readableMap) {
         try {
-            push = new XM(reactContext);
+            String brand = SystemUtil.getDeviceBrand();
+            Log.d("jjpush", SystemUtil.getDeviceBrand());
+            Log.d("jjpush", SystemUtil.getSystemModel());
+            Log.d("jjpush", SystemUtil.getSystemVersion());
+            if (brand.toUpperCase(Locale.ROOT).startsWith("HUAWEI")) {
+                push = new Hms(reactContext);
+            } else {
+                push = new XM(reactContext);
+            }
+
             push.init();
 
         } catch (Exception e) {
