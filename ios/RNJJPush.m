@@ -80,6 +80,8 @@ RCT_EXPORT_METHOD(unsetTag:(NSString *)text)
     if([notification.request.trigger isKindOfClass:[UNPushNotificationTrigger class]]) {
 
         [RNCPushNotificationIOS didReceiveRemoteNotification:userInfo];
+    } else {
+        completionHandler(UNNotificationPresentationOptionSound | UNNotificationPresentationOptionAlert | UNNotificationPresentationOptionBadge);
     }
 }
 

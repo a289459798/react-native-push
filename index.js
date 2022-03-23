@@ -8,7 +8,7 @@ import {
 } from 'react-native';
 
 const RNJJPush = NativeModules.RNJJPush;
-import PushNotificationIOS from '@react-native-community/push-notification-ios'
+import PushNotificationIOS from '@react-native-community/push-notification-ios';
 
 class JJPush extends NativeEventEmitter {
 
@@ -81,6 +81,18 @@ class JJPush extends NativeEventEmitter {
         RNJJPush.unsetTag(text);
     }
 
+    notify(title, body) {
+        if (Platform.OS == 'ios') {
+            PushNotificationIOS.addNotificationRequest({
+                id: '1',
+                title: title,
+                body: body,
+            });
+        } else {
+            RNJJPush.notify(title, body);
+        }
+    }
+
     /**
      *
      * @param type
@@ -100,7 +112,7 @@ class JJPush extends NativeEventEmitter {
                 case 'notification':
                 case 'jjpush_notify':
                     if (type == 'jjpush_notify') {
-                        type = 'notification'
+                        type = 'notification';
                     }
                     PushNotificationIOS.addEventListener(type, (res) => {
                         handler && handler(res._data);
@@ -146,7 +158,9 @@ class JJPush extends NativeEventEmitter {
         if (Platform.OS == 'ios') {
             PushNotificationIOS.getInitialNotification()
                 .then((res) => {
-                    handler && handler(res._data);
+                    if (res && res._data) {
+                        handler && handler(res._data);
+                    }
                 });
         } else {
             // RNJJPush.getInitialNotification()
