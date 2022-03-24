@@ -15,8 +15,17 @@ public class Vivo extends BasePush implements IPushActionListener {
     public void init() {
         try {
             PushClient.getInstance(context).initialize();
-            PushClient.getInstance(context).turnOnPush(this);
-            Log.d(TAG, PushClient.getInstance(context).getRegId());
+            PushClient.getInstance(context).turnOnPush(new IPushActionListener() {
+                @Override
+                public void onStateChanged(int i) {
+                    Log.d(TAG, "onStateChanged2:" + i);
+                    if (i == 0) {
+                        Log.d(TAG, PushClient.getInstance(context).getRegId());
+                        PushClient.getInstance(context).setTopic("all-member", this);
+                    }
+                }
+            });
+
         } catch (VivoPushException e) {
             e.printStackTrace();
         }

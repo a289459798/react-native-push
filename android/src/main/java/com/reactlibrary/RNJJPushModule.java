@@ -50,10 +50,6 @@ public class RNJJPushModule extends ReactContextBaseJavaModule {
                  */
                 push = new XM(reactContext);
             } else if (brand.toUpperCase().startsWith("VIVO") && (readableMap == null || !readableMap.getBoolean("vivo"))) {
-                /**
-                 * vivo不能使用广播，广播走小米
-                 */
-                new XM(reactContext).init();
                 push = new Vivo(reactContext);
             } else {
                 // 其他走小米推送
