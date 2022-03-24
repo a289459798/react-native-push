@@ -51,23 +51,27 @@ public class XM extends BasePush{
     }
 
     @Override
-    public void setAlias(String alias) {
+    public String setAlias(String alias) {
         MiPushClient.setAlias(context, alias, null);
+        return null;
     }
 
     @Override
-    public void unsetAlias(String alias) {
+    public String unsetAlias(String alias) {
         MiPushClient.unsetAlias(context, alias, null);
+        return null;
     }
 
     @Override
-    public void setTag(String tag) {
+    public String setTag(String tag) {
         MiPushClient.subscribe(context, tag, null);
+        return null;
     }
 
     @Override
-    public void unsetTag(String tag) {
+    public String unsetTag(String tag) {
         MiPushClient.unsubscribe(context, tag, null);
+        return null;
     }
 
     private boolean shouldInit(Context context) {

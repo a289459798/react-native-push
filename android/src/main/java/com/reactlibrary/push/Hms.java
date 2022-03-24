@@ -48,23 +48,27 @@ public class Hms extends BasePush {
     }
 
     @Override
-    public void setAlias(String alias) {
+    public String setAlias(String alias) {
         hmsMessaging.subscribe(alias);
+        return null;
     }
 
     @Override
-    public void unsetAlias(String alias) {
+    public String unsetAlias(String alias) {
         hmsMessaging.unsubscribe(alias);
+        return null;
     }
 
     @Override
-    public void setTag(String tag) {
+    public String setTag(String tag) {
         hmsMessaging.subscribe(tag);
+        return null;
     }
 
     @Override
-    public void unsetTag(String tag) {
+    public String unsetTag(String tag) {
         hmsMessaging.unsubscribe(tag);
+        return null;
     }
 
     private void updateHMS(ApiException e) {

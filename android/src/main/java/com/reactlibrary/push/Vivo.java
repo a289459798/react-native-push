@@ -16,6 +16,7 @@ public class Vivo extends BasePush implements IPushActionListener {
         try {
             PushClient.getInstance(context).initialize();
             PushClient.getInstance(context).turnOnPush(this);
+            Log.d(TAG, PushClient.getInstance(context).getRegId());
         } catch (VivoPushException e) {
             e.printStackTrace();
         }
@@ -28,23 +29,27 @@ public class Vivo extends BasePush implements IPushActionListener {
     }
 
     @Override
-    public void setAlias(String alias) {
+    public String setAlias(String alias) {
         PushClient.getInstance(context).bindAlias(alias, this);
+        return null;
     }
 
     @Override
-    public void unsetAlias(String alias) {
+    public String unsetAlias(String alias) {
         PushClient.getInstance(context).unBindAlias(alias, this);
+        return null;
     }
 
     @Override
-    public void setTag(String tag) {
+    public String setTag(String tag) {
         PushClient.getInstance(context).setTopic(tag, this);
+        return null;
     }
 
     @Override
-    public void unsetTag(String tag) {
+    public String unsetTag(String tag) {
         PushClient.getInstance(context).delTopic(tag, this);
+        return null;
     }
 
     @Override

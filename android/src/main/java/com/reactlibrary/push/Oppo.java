@@ -4,6 +4,7 @@ import android.content.Context;
 import android.util.Log;
 import com.heytap.msp.push.HeytapPushManager;
 import com.heytap.msp.push.callback.ICallBackResultService;
+import com.reactlibrary.PushHelper;
 
 public class Oppo extends BasePush implements ICallBackResultService {
     public Oppo(Context context) {
@@ -12,8 +13,12 @@ public class Oppo extends BasePush implements ICallBackResultService {
 
     @Override
     public void init() {
-        HeytapPushManager.init(context, true);
-        HeytapPushManager.register(context, "", "", this);
+        try {
+            HeytapPushManager.init(context, true);
+            HeytapPushManager.register(context, String.valueOf(PushHelper.getConfigValue(context, "com.xm.oppo.app_key")), String.valueOf(PushHelper.getConfigValue(context, "com.xm.oppo.app_secret")), this);
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
     }
 
     @Override
@@ -22,23 +27,23 @@ public class Oppo extends BasePush implements ICallBackResultService {
     }
 
     @Override
-    public void setAlias(String alias) {
-
+    public String setAlias(String alias) {
+        return HeytapPushManager.getRegisterID();
     }
 
     @Override
-    public void unsetAlias(String alias) {
-
+    public String unsetAlias(String alias) {
+        return HeytapPushManager.getRegisterID();
     }
 
     @Override
-    public void setTag(String tag) {
-
+    public String setTag(String tag) {
+        return HeytapPushManager.getRegisterID();
     }
 
     @Override
-    public void unsetTag(String tag) {
-
+    public String unsetTag(String tag) {
+        return HeytapPushManager.getRegisterID();
     }
 
     @Override

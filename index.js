@@ -54,7 +54,7 @@ class JJPush extends NativeEventEmitter {
      * @param text
      */
     setAlias(text) {
-        RNJJPush.setAlias(text);
+        return RNJJPush.setAlias(text);
     }
 
     /**
@@ -62,7 +62,7 @@ class JJPush extends NativeEventEmitter {
      * @param text
      */
     unsetAlias(text) {
-        RNJJPush.unsetAlias(text);
+        return RNJJPush.unsetAlias(text);
     }
 
     /**
@@ -70,7 +70,7 @@ class JJPush extends NativeEventEmitter {
      * @param text
      */
     setTag(text) {
-        RNJJPush.setTag(text);
+        return RNJJPush.setTag(text);
     }
 
     /**
@@ -78,7 +78,7 @@ class JJPush extends NativeEventEmitter {
      * @param text
      */
     unsetTag(text) {
-        RNJJPush.unsetTag(text);
+        return RNJJPush.unsetTag(text);
     }
 
     notify(title, body) {
