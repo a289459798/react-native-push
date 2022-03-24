@@ -15,7 +15,7 @@ public class Oppo extends BasePush implements ICallBackResultService {
     public void init() {
         try {
             HeytapPushManager.init(context, true);
-            HeytapPushManager.register(context, String.valueOf(PushHelper.getConfigValue(context, "com.xm.oppo.app_key")), String.valueOf(PushHelper.getConfigValue(context, "com.xm.oppo.app_secret")), this);
+            HeytapPushManager.register(context, String.valueOf(PushHelper.getConfigValue(context, "com.oppo.push.app_key")), String.valueOf(PushHelper.getConfigValue(context, "com.oppo.push.app_secret")), this);
         } catch (Exception e) {
             e.printStackTrace();
         }

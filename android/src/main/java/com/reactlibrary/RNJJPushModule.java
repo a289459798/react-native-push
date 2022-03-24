@@ -43,7 +43,7 @@ public class RNJJPushModule extends ReactContextBaseJavaModule {
             Log.d("jjpush", SystemUtil.getSystemVersion());
             if (brand.toUpperCase().startsWith("HUAWEI") && (readableMap == null || !readableMap.getBoolean("hms"))) {
                 push = new Hms(reactContext);
-            } else if (brand.toUpperCase().startsWith("OPPO") && (readableMap == null || !readableMap.getBoolean("oppo"))) {
+            } else if ((brand.toUpperCase().startsWith("OPPO") || brand.toUpperCase().startsWith("一加") || brand.toUpperCase().startsWith("REALME")) && (readableMap == null || !readableMap.getBoolean("oppo"))) {
                 new Oppo(reactContext).init();
                 /**
                  * oppo不能使用别名和标签，别名和标签走小米
