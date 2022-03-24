@@ -41,21 +41,24 @@ public class RNJJPushModule extends ReactContextBaseJavaModule {
             Log.d("jjpush", SystemUtil.getDeviceBrand());
             Log.d("jjpush", SystemUtil.getSystemModel());
             Log.d("jjpush", SystemUtil.getSystemVersion());
-//            if (brand.toUpperCase().startsWith("HUAWEI") && (readableMap == null || !readableMap.getBoolean("hms"))) {
-//                push = new Hms(reactContext);
-//            } else if (brand.toUpperCase().startsWith("OPPO") && (readableMap == null || !readableMap.getBoolean("oppo"))) {
-//                new Oppo(reactContext).init();
-//                /**
-//                 * oppo不能使用别名和标签，别名和标签走小米
-//                 */
-//                push = new XM(reactContext);
-//            } else if (brand.toUpperCase().startsWith("VIVO") && (readableMap == null || !readableMap.getBoolean("vivo"))) {
-//                push = new Vivo(reactContext);
-//            } else {
-//                // 其他走小米推送
-//                push = new XM(reactContext);
-//            }
-            push = new Vivo(reactContext);
+            if (brand.toUpperCase().startsWith("HUAWEI") && (readableMap == null || !readableMap.getBoolean("hms"))) {
+                push = new Hms(reactContext);
+            } else if (brand.toUpperCase().startsWith("OPPO") && (readableMap == null || !readableMap.getBoolean("oppo"))) {
+                new Oppo(reactContext).init();
+                /**
+                 * oppo不能使用别名和标签，别名和标签走小米
+                 */
+                push = new XM(reactContext);
+            } else if (brand.toUpperCase().startsWith("VIVO") && (readableMap == null || !readableMap.getBoolean("vivo"))) {
+                /**
+                 * vivo不能使用广播，广播走小米
+                 */
+                new XM(reactContext).init();
+                push = new Vivo(reactContext);
+            } else {
+                // 其他走小米推送
+                push = new XM(reactContext);
+            }
             push.init();
 
             HeytapPushManager.requestNotificationPermission();
