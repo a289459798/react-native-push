@@ -9,13 +9,16 @@ import android.app.NotificationManager;
 import android.app.PendingIntent;
 import android.content.Context;
 import android.content.Intent;
+import android.net.Uri;
 import android.os.Build;
 import android.text.TextUtils;
 import android.util.Log;
 import androidx.core.app.NotificationCompat;
 import com.facebook.react.bridge.*;
 import com.heytap.msp.push.HeytapPushManager;
+import com.reactlibrary.activity.MainActivity;
 import com.reactlibrary.push.*;
+import com.vivo.push.PushClient;
 
 import java.util.Locale;
 
@@ -44,12 +47,8 @@ public class RNJJPushModule extends ReactContextBaseJavaModule {
             if (brand.toUpperCase().startsWith("HUAWEI") && (readableMap == null || !readableMap.getBoolean("hms"))) {
                 push = new Hms(reactContext);
             } else if ((brand.toUpperCase().startsWith("OPPO") || brand.toUpperCase().startsWith("一加") || brand.toUpperCase().startsWith("REALME")) && (readableMap == null || !readableMap.getBoolean("oppo"))) {
-                new Oppo(reactContext).init();
-                /**
-                 * oppo不能使用别名和标签，别名和标签走小米
-                 */
-                push = new XM(reactContext);
-            } else if (brand.toUpperCase().startsWith("VIVO") && (readableMap == null || !readableMap.getBoolean("vivo"))) {
+                push = new Oppo(reactContext);
+            } else if (brand.toUpperCase().startsWith("VIVO") && (readableMap == null || !readableMap.getBoolean("vivo")) && PushClient.getInstance(reactContext).isSupport()) {
                 push = new Vivo(reactContext);
             } else {
                 // 其他走小米推送
@@ -81,7 +80,12 @@ public class RNJJPushModule extends ReactContextBaseJavaModule {
     @ReactMethod
     public void unsetAlias(String alias, final Promise promise) {
         try {
-            push.unsetAlias(alias);
+            String regId = push.unsetAlias(alias);
+            if (!TextUtils.isEmpty(regId)) {
+                if (promise != null) {
+                    promise.resolve(regId);
+                }
+            }
         } catch (Exception e) {
             e.printStackTrace();
         }
@@ -90,7 +94,12 @@ public class RNJJPushModule extends ReactContextBaseJavaModule {
     @ReactMethod
     public void setTag(String tag, final Promise promise) {
         try {
-            push.setTag(tag);
+            String regId = push.setTag(tag);
+            if (!TextUtils.isEmpty(regId)) {
+                if (promise != null) {
+                    promise.resolve(regId);
+                }
+            }
         } catch (Exception e) {
             e.printStackTrace();
         }
@@ -99,7 +108,12 @@ public class RNJJPushModule extends ReactContextBaseJavaModule {
     @ReactMethod
     public void unsetTag(String tag, final Promise promise) {
         try {
-            push.unsetTag(tag);
+            String regId = push.unsetTag(tag);
+            if (!TextUtils.isEmpty(regId)) {
+                if (promise != null) {
+                    promise.resolve(regId);
+                }
+            }
         } catch (Exception e) {
             e.printStackTrace();
         }
