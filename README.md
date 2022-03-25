@@ -10,10 +10,63 @@
 
 ## Usage
 ```javascript
-import ReactNativePush from 'react-native-push';
+import JJPush from 'react-native-push';
 
-// TODO: What to do with the module?
-ReactNativePush;
+// 用户同意协议之后初始化
+JJPush.init(disable);
+
+//example    禁用oppo推送
+JJPush.init({oppo:true});
+
+//本地通知
+JJPush.notify(title, body)
+
+// 设置别名
+JJPush.setAlias(alias)
+
+// oppo不能直接在客户端试设置
+JJPush.setAlias(alias).then(regId => {
+    // 发送网络请求，服务端绑定
+})
+
+// 删除别名
+JJPush.unsetAlias(alias)
+
+// oppo不能直接在客户端试设置
+JJPush.unsetAlias(alias).then(regId => {
+    // 发送网络请求，服务端取消绑定
+})
+
+// 设置标签
+JJPush.setTag(tag)
+
+// oppo不能直接在客户端试设置
+JJPush.setTag(alias).then(regId => {
+    // 发送网络请求，服务端绑定
+})
+
+// 删除标签绑定
+JJPush.unsetTag(tag)
+
+// oppo不能直接在客户端试设置
+JJPush.unsetTag(alias).then(regId => {
+    // 发送网络请求，服务端取消绑定
+})
+
+// 监听通知消息，oppo和vivo不支持
+JJPush.addEventListener('jjpush_notify', (res) => {
+    console.log("jjpush", res)
+});
+
+// 监听通知栏点击
+JJPush.addEventListener('jjpush_click', (res) => {
+    console.log("jjpush", res)
+});
+
+// ios，通过通知栏启动应用
+JJPush.getInitialNotification((res) => {
+    alert(JSON.stringify(res))
+});
 ```
 
 
