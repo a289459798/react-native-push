@@ -24,34 +24,15 @@ JJPush.notify(title, body)
 // 设置别名
 JJPush.setAlias(alias)
 
-// oppo不能直接在客户端试设置
-JJPush.setAlias(alias).then(regId => {
-    // 发送网络请求，服务端绑定
-})
-
 // 删除别名
 JJPush.unsetAlias(alias)
-
-// oppo不能直接在客户端试设置
-JJPush.unsetAlias(alias).then(regId => {
-    // 发送网络请求，服务端取消绑定
-})
 
 // 设置标签
 JJPush.setTag(tag)
 
-// oppo不能直接在客户端试设置
-JJPush.setTag(alias).then(regId => {
-    // 发送网络请求，服务端绑定
-})
-
 // 删除标签绑定
 JJPush.unsetTag(tag)
 
-// oppo不能直接在客户端试设置
-JJPush.unsetTag(alias).then(regId => {
-    // 发送网络请求，服务端取消绑定
-})
 
 // 监听通知消息，oppo和vivo不支持
 JJPush.addEventListener('jjpush_notify', (res) => {
