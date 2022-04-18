@@ -38,23 +38,20 @@ public class RNJJPushModule extends ReactContextBaseJavaModule {
     }
 
     @ReactMethod
-    public void init(ReadableMap readableMap) {
+    public void init(String appkey, String secret, ReadableMap readableMap) {
         try {
             String brand = SystemUtil.getDeviceBrand();
-            Log.d("jjpush", SystemUtil.getDeviceBrand());
-            Log.d("jjpush", SystemUtil.getSystemModel());
-            Log.d("jjpush", SystemUtil.getSystemVersion());
-            if (brand.toUpperCase().startsWith("HUAWEI") && (readableMap == null || !readableMap.getBoolean("hms"))) {
-                push = new Hms(reactContext);
-            } else if ((brand.toUpperCase().startsWith("OPPO") || brand.toUpperCase().startsWith("一加") || brand.toUpperCase().startsWith("REALME")) && (readableMap == null || !readableMap.getBoolean("oppo"))) {
+//            if (brand.toUpperCase().startsWith("HUAWEI") && (readableMap == null || !readableMap.getBoolean("hms"))) {
+//                push = new Hms(reactContext);
+//            } else if ((brand.toUpperCase().startsWith("OPPO") || brand.toUpperCase().startsWith("一加") || brand.toUpperCase().startsWith("REALME")) && (readableMap == null || !readableMap.getBoolean("oppo"))) {
                 push = new Oppo(reactContext);
-            } else if (brand.toUpperCase().startsWith("VIVO") && (readableMap == null || !readableMap.getBoolean("vivo")) && PushClient.getInstance(reactContext).isSupport()) {
-                push = new Vivo(reactContext);
-            } else {
-                // 其他走小米推送
-                push = new XM(reactContext);
-            }
-            push.init();
+//            } else if (brand.toUpperCase().startsWith("VIVO") && (readableMap == null || !readableMap.getBoolean("vivo")) && PushClient.getInstance(reactContext).isSupport()) {
+//                push = new Vivo(reactContext);
+//            } else {
+//                // 其他走小米推送
+//                push = new XM(reactContext);
+//            }
+            push.init(appkey, secret);
 
             HeytapPushManager.requestNotificationPermission();
 

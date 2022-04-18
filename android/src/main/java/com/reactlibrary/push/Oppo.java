@@ -5,6 +5,17 @@ import android.util.Log;
 import com.heytap.msp.push.HeytapPushManager;
 import com.heytap.msp.push.callback.ICallBackResultService;
 import com.reactlibrary.PushHelper;
+import okhttp3.MediaType;
+import okhttp3.OkHttpClient;
+import okhttp3.Request;
+import okhttp3.RequestBody;
+import okio.BufferedSink;
+import org.jetbrains.annotations.NotNull;
+import org.jetbrains.annotations.Nullable;
+
+import java.io.IOException;
+import java.util.HashMap;
+import java.util.Map;
 
 public class Oppo extends BasePush implements ICallBackResultService {
     public Oppo(Context context) {
@@ -22,28 +33,39 @@ public class Oppo extends BasePush implements ICallBackResultService {
     }
 
     @Override
-    public void init(String appId, String appKey) {
-        this.init();
-    }
-
-    @Override
     public String setAlias(String alias) {
-        return HeytapPushManager.getRegisterID();
+
+        Map<String, String> map = new HashMap<>();
+        map.put("alias", alias);
+        map.put("token", HeytapPushManager.getRegisterID());
+        httpPost("http://apisend.tonglao.com.cn/api/alias", map);
+        return null;
     }
 
     @Override
     public String unsetAlias(String alias) {
-        return HeytapPushManager.getRegisterID();
+        Map<String, String> map = new HashMap<>();
+        map.put("alias", alias);
+        httpPost("http://apisend.tonglao.com.cn/api/alias/unset", map);
+        return null;
     }
 
     @Override
     public String setTag(String tag) {
-        return HeytapPushManager.getRegisterID();
+        Map<String, String> map = new HashMap<>();
+        map.put("tag", tag);
+        map.put("token", HeytapPushManager.getRegisterID());
+        httpPost("http://apisend.tonglao.com.cn/api/tag", map);
+        return null;
     }
 
     @Override
     public String unsetTag(String tag) {
-        return HeytapPushManager.getRegisterID();
+        Map<String, String> map = new HashMap<>();
+        map.put("tag", tag);
+        map.put("token", HeytapPushManager.getRegisterID());
+        httpPost("http://apisend.tonglao.com.cn/api/tag/unset", map);
+        return null;
     }
 
     @Override

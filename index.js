@@ -19,18 +19,18 @@ class JJPush extends NativeEventEmitter {
         this.state = {};
     }
 
-    init(data) {
+    init(appkey, secret, data) {
         if (Platform.OS == 'android') {
             PermissionsAndroid.check(PermissionsAndroid.PERMISSIONS.READ_PHONE_STATE).then((state) => {
                 if (state) {
                     PermissionsAndroid.check(PermissionsAndroid.PERMISSIONS.WRITE_EXTERNAL_STORAGE).then((state) => {
                         if (state) {
 
-                            RNJJPush.init(data);
+                            RNJJPush.init(appkey, secret, data);
                         } else {
                             PermissionsAndroid.request(PermissionsAndroid.PERMISSIONS.WRITE_EXTERNAL_STORAGE).then((granted) => {
                                 if (granted === PermissionsAndroid.RESULTS.GRANTED) {
-                                    RNJJPush.init(appid, appkey);
+                                    RNJJPush.init(appkey, secret, data);
                                 }
                             });
                         }
@@ -41,7 +41,7 @@ class JJPush extends NativeEventEmitter {
                         PermissionsAndroid.PERMISSIONS.WRITE_EXTERNAL_STORAGE,
                     ]).then((granted) => {
                         // if (granted === PermissionsAndroid.RESULTS.GRANTED) {
-                        RNJJPush.init(data);
+                        RNJJPush.init(appkey, secret, data);
                         // }
                     });
                 }

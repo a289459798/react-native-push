@@ -33,11 +33,6 @@ public class Vivo extends BasePush implements IPushActionListener {
     }
 
     @Override
-    public void init(String appId, String appKey) {
-        this.init();
-    }
-
-    @Override
     public String setAlias(String alias) {
         PushClient.getInstance(context).bindAlias(alias, this);
         return null;

@@ -43,11 +43,6 @@ public class Hms extends BasePush {
     }
 
     @Override
-    public void init(String appId, String appKey) {
-        this.init();
-    }
-
-    @Override
     public String setAlias(String alias) {
         hmsMessaging.subscribe(alias);
         return null;

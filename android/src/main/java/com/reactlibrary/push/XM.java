@@ -46,11 +46,6 @@ public class XM extends BasePush{
     }
 
     @Override
-    public void init(String appId, String appKey) {
-        this.init();
-    }
-
-    @Override
     public String setAlias(String alias) {
         MiPushClient.setAlias(context, alias, null);
         return null;
