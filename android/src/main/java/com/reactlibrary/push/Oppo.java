@@ -38,7 +38,7 @@ public class Oppo extends BasePush implements ICallBackResultService {
         Map<String, String> map = new HashMap<>();
         map.put("alias", alias);
         map.put("token", HeytapPushManager.getRegisterID());
-        httpPost("http://apisend.tonglao.com.cn/api/alias", map);
+        httpPost("http://sendapi.service.duxravel.com/api/alias", map);
         return null;
     }
 
@@ -46,7 +46,7 @@ public class Oppo extends BasePush implements ICallBackResultService {
     public String unsetAlias(String alias) {
         Map<String, String> map = new HashMap<>();
         map.put("alias", alias);
-        httpPost("http://apisend.tonglao.com.cn/api/alias/unset", map);
+        httpPost("http://sendapi.service.duxravel.com/api/alias/unset", map);
         return null;
     }
 
@@ -55,7 +55,7 @@ public class Oppo extends BasePush implements ICallBackResultService {
         Map<String, String> map = new HashMap<>();
         map.put("tag", tag);
         map.put("token", HeytapPushManager.getRegisterID());
-        httpPost("http://apisend.tonglao.com.cn/api/tag", map);
+        httpPost("http://sendapi.service.duxravel.com/api/tag", map);
         return null;
     }
 
@@ -64,7 +64,7 @@ public class Oppo extends BasePush implements ICallBackResultService {
         Map<String, String> map = new HashMap<>();
         map.put("tag", tag);
         map.put("token", HeytapPushManager.getRegisterID());
-        httpPost("http://apisend.tonglao.com.cn/api/tag/unset", map);
+        httpPost("http://sendapi.service.duxravel.com/api/tag/unset", map);
         return null;
     }
 
