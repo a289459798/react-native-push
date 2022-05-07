@@ -1,4 +1,4 @@
-package com.reactlibrary;
+package com.jjpush;
 
 import android.content.Context;
 import android.content.pm.ApplicationInfo;

@@ -1,10 +1,10 @@
-package com.reactlibrary.push;
+package com.jjpush.push;
 
 import android.app.ActivityManager;
 import android.content.Context;
 import android.os.Process;
 import android.util.Log;
-import com.reactlibrary.PushHelper;
+import com.jjpush.PushHelper;
 import com.xiaomi.channel.commonutils.logger.LoggerInterface;
 import com.xiaomi.mipush.sdk.Logger;
 import com.xiaomi.mipush.sdk.MiPushClient;

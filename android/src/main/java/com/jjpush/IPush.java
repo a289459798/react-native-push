@@ -1,4 +1,4 @@
-package com.reactlibrary;
+package com.jjpush;
 
 public interface IPush {
     void init();

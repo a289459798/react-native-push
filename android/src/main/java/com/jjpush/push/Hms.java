@@ -1,8 +1,7 @@
-package com.reactlibrary.push;
+package com.jjpush.push;
 
 import android.app.PendingIntent;
 import android.content.Intent;
-import android.text.TextUtils;
 import android.util.Log;
 import com.facebook.react.bridge.ReactApplicationContext;
 import com.huawei.hms.aaid.HmsInstanceId;
@@ -10,8 +9,7 @@ import com.huawei.hms.common.ApiException;
 import com.huawei.hms.common.ResolvableApiException;
 import com.huawei.hms.push.HmsMessaging;
 import com.huawei.hms.support.log.HMSLog;
-import com.reactlibrary.IPush;
-import com.reactlibrary.PushHelper;
+import com.jjpush.PushHelper;
 
 public class Hms extends BasePush {
     private HmsMessaging hmsMessaging;

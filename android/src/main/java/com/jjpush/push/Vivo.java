@@ -1,4 +1,4 @@
-package com.reactlibrary.push;
+package com.jjpush.push;
 
 import android.content.Context;
 import android.util.Log;

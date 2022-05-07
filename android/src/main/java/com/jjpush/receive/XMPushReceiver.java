@@ -1,11 +1,10 @@
-package com.reactlibrary.receive;
+package com.jjpush.receive;
 
 import android.content.Context;
 import android.content.Intent;
-import android.util.Log;
 import com.facebook.react.modules.core.DeviceEventManagerModule;
 import com.google.gson.Gson;
-import com.reactlibrary.RNJJPushPackage;
+import com.jjpush.RNJJPushPackage;
 import com.xiaomi.mipush.sdk.MiPushMessage;
 import com.xiaomi.mipush.sdk.PushMessageReceiver;
 

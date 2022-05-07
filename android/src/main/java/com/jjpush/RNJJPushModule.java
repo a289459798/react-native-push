@@ -1,6 +1,6 @@
 // ReactNativePushModule.java
 
-package com.reactlibrary;
+package com.jjpush;
 
 import android.annotation.SuppressLint;
 import android.app.Notification;
@@ -9,18 +9,13 @@ import android.app.NotificationManager;
 import android.app.PendingIntent;
 import android.content.Context;
 import android.content.Intent;
-import android.net.Uri;
 import android.os.Build;
 import android.text.TextUtils;
-import android.util.Log;
 import androidx.core.app.NotificationCompat;
 import com.facebook.react.bridge.*;
 import com.heytap.msp.push.HeytapPushManager;
-import com.reactlibrary.activity.MainActivity;
-import com.reactlibrary.push.*;
+import com.jjpush.push.*;
 import com.vivo.push.PushClient;
-
-import java.util.Locale;
 
 public class RNJJPushModule extends ReactContextBaseJavaModule {
 

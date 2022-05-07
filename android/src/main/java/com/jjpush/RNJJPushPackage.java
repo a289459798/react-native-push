@@ -1,6 +1,6 @@
 // ReactNativePushPackage.java
 
-package com.reactlibrary;
+package com.jjpush;
 
 import java.util.Arrays;
 import java.util.Collections;
@@ -11,10 +11,12 @@ import com.facebook.react.bridge.NativeModule;
 import com.facebook.react.bridge.ReactApplicationContext;
 import com.facebook.react.uimanager.ViewManager;
 
-public class ReactNativePushPackage implements ReactPackage {
+public class RNJJPushPackage implements ReactPackage {
+    public static ReactApplicationContext reactContext;
     @Override
     public List<NativeModule> createNativeModules(ReactApplicationContext reactContext) {
-        return Arrays.<NativeModule>asList(new ReactNativePushModule(reactContext));
+        this.reactContext = reactContext;
+        return Arrays.<NativeModule>asList(new RNJJPushModule(reactContext));
     }
 
     @Override

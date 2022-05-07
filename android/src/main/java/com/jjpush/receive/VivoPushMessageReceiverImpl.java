@@ -1,8 +1,7 @@
-package com.reactlibrary.receive;
+package com.jjpush.receive;
 
 import android.content.Context;
 import android.util.Log;
-import android.widget.Toast;
 import com.vivo.push.model.UPSNotificationMessage;
 import com.vivo.push.model.UnvarnishedMessage;
 import com.vivo.push.sdk.OpenClientPushMessageReceiver;

@@ -1,10 +1,10 @@
-package com.reactlibrary.service;
+package com.jjpush.service;
 
 import android.content.Context;
 import android.util.Log;
 import com.heytap.msp.push.mode.DataMessage;
 import com.heytap.msp.push.service.DataMessageCallbackService;
-import com.reactlibrary.NotificationUtil;
+import com.jjpush.NotificationUtil;
 
 public class OppoDataMessageCallbackService extends DataMessageCallbackService {
     @Override

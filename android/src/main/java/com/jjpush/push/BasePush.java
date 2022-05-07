@@ -1,15 +1,12 @@
-package com.reactlibrary.push;
+package com.jjpush.push;
 
 import android.content.Context;
 import android.util.Log;
-import com.facebook.react.bridge.ReactApplicationContext;
 import com.google.gson.Gson;
-import com.heytap.msp.push.HeytapPushManager;
-import com.reactlibrary.IPush;
+import com.jjpush.IPush;
 import okhttp3.*;
 
 import java.io.IOException;
-import java.util.HashMap;
 import java.util.Map;
 
 public abstract class BasePush implements IPush {

@@ -1,15 +1,13 @@
-package com.reactlibrary.activity;
+package com.jjpush.activity;
 
 import android.app.Activity;
 import android.content.Intent;
 import android.net.Uri;
-import android.text.TextUtils;
 import android.util.Log;
-import androidx.appcompat.app.AppCompatActivity;
 import android.os.Bundle;
 import com.facebook.react.modules.core.DeviceEventManagerModule;
 import com.google.gson.Gson;
-import com.reactlibrary.RNJJPushPackage;
+import com.jjpush.RNJJPushPackage;
 
 import java.net.URL;
 import java.net.URLDecoder;
@@ -21,7 +19,7 @@ public class MainActivity extends Activity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(com.reactlibrary.R.layout.activity_main);
+        setContentView(com.jjpush.R.layout.activity_main);
 
         Intent intent = getIntent();
 

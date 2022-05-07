@@ -1,19 +1,11 @@
-package com.reactlibrary.push;
+package com.jjpush.push;
 
 import android.content.Context;
 import android.util.Log;
 import com.heytap.msp.push.HeytapPushManager;
 import com.heytap.msp.push.callback.ICallBackResultService;
-import com.reactlibrary.PushHelper;
-import okhttp3.MediaType;
-import okhttp3.OkHttpClient;
-import okhttp3.Request;
-import okhttp3.RequestBody;
-import okio.BufferedSink;
-import org.jetbrains.annotations.NotNull;
-import org.jetbrains.annotations.Nullable;
+import com.jjpush.PushHelper;
 
-import java.io.IOException;
 import java.util.HashMap;
 import java.util.Map;
 

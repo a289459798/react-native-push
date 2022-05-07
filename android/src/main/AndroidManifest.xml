@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-          package="com.reactlibrary">
+          package="com.jjpush">
 
     <uses-permission android:name="android.permission.INTERNET"/>
 
@@ -9,7 +9,7 @@
             android:value="false"/>
 
     <application>
-        <activity android:name=".activity.MainActivity"
+        <activity android:name="com.jjpush.activity.MainActivity"
                   android:theme="@style/TranslucentTheme"
         >
             <intent-filter>
@@ -66,7 +66,7 @@
             </intent-filter>
         </receiver>
         <receiver
-                android:name=".receive.XMPushReceiver"
+                android:name="com.jjpush.receive.XMPushReceiver"
                 android:exported="true">
             <intent-filter>
                 <action android:name="com.xiaomi.mipush.RECEIVE_MESSAGE"/>
@@ -80,14 +80,14 @@
         </receiver>
 
         <service
-                android:name=".service.HmsService"
+                android:name="com.jjpush.service.HmsService"
                 android:exported="false">
             <intent-filter>
                 <action android:name="com.huawei.push.action.MESSAGING_EVENT"/>
             </intent-filter>
         </service>
         <service
-                android:name=".service.OppoDataMessageCallbackService"
+                android:name="com.jjpush.service.OppoDataMessageCallbackService"
                 android:exported="true"
                 android:permission="com.heytap.mcs.permission.SEND_PUSH_MESSAGE">
             <intent-filter>
@@ -96,7 +96,7 @@
             </intent-filter>
         </service>
         <service
-                android:name=".service.OppoCompatibleDataMessageCallbackService"
+                android:name="com.jjpush.service.OppoCompatibleDataMessageCallbackService"
                 android:exported="true"
                 android:permission="com.coloros.mcs.permission.SEND_MCS_MESSAGE">
             <intent-filter>
@@ -105,7 +105,7 @@
         </service>
 
         <receiver
-                android:name=".receive.VivoPushMessageReceiverImpl"
+                android:name="com.jjpush.receive.VivoPushMessageReceiverImpl"
                 android:exported="false">
             <intent-filter>
 

@@ -1,15 +1,10 @@
-package com.reactlibrary.service;
+package com.jjpush.service;
 
 import android.util.Log;
-import com.facebook.react.bridge.Arguments;
-import com.facebook.react.bridge.ReadableMap;
-import com.facebook.react.bridge.WritableMap;
 import com.facebook.react.modules.core.DeviceEventManagerModule;
 import com.huawei.hms.push.HmsMessageService;
 import com.huawei.hms.push.RemoteMessage;
-import com.reactlibrary.PushHelper;
-import com.reactlibrary.RNJJPushModule;
-import com.reactlibrary.RNJJPushPackage;
+import com.jjpush.RNJJPushPackage;
 
 public class HmsService extends HmsMessageService {
     public static String TAG = "jjpushservice";
