@@ -24,6 +24,8 @@ Pod::Spec.new do |s|
   s.ios.vendored_libraries = 'ios/*.a'
   s.requires_arc = true
 
+  s.frameworks = 'UserNotifications','SystemConfiguration','MobileCoreServices','CFNetwork','CoreTelephony'
+  s.library = 'libresolv','libxml2','libz'
   s.dependency "React"
   s.dependency 'RNCPushNotificationIOS'
 end
