@@ -9,7 +9,7 @@
             android:value="false"/>
 
     <application>
-        <activity android:name="com.jjpush.activity.MainActivity"
+        <activity  android:exported="true"  android:name="com.jjpush.activity.MainActivity"
                   android:theme="@style/TranslucentTheme"
         >
             <intent-filter>
