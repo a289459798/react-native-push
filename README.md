@@ -122,9 +122,24 @@ android:protectionLevel="signature" /> <!--这里com.xiaomi.mipushdemo改成app�
 ```c
 ...
 #import "RNJJPush.h"
+#import <UserNotifications/UserNotifications.h>
+@interface AppDelegate : UIResponder <UIApplicationDelegate, RCTBridgeDelegate, UNUserNotificationCenterDelegate>
 
+@property (nonatomic, strong) UIWindow *window;
+
+@end
+```
+- 在AppDelegate.m中添加
+
+```
 ...
-[RNJJPush application:application didFinishLaunchingWithOptions:launchOptions];
+- (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
+{
+    ...
+    [UNUserNotificationCenter currentNotificationCenter].delegate = self;
+    [RNJJPush application:application didFinishLaunchingWithOptions:launchOptions];
+    ...
+}
 ...
 
 ...

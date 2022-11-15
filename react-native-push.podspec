@@ -28,5 +28,8 @@ Pod::Spec.new do |s|
   s.library = 'resolv','xml2','z'
   s.dependency "React"
   s.dependency 'RNCPushNotificationIOS'
+  s.dependency "UMPush", "4.0.3"
+  s.dependency "UMCommon", "7.3.0"
+  s.dependency "UMDevice", "2.0.1"
 end
 

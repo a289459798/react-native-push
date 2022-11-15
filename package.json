@@ -65,5 +65,5 @@
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "title": "React Native Push",
-  "version": "1.0.0"
+  "version": "1.1.0"
 }
