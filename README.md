@@ -13,10 +13,13 @@
 import JJPush from 'react-native-push';
 
 // 用户同意协议之后初始化
-JJPush.init(disable);
+JJPush.init(appkey, secret, disable);
+
+// ios
+JJPush.init('xxx', 'xxxx', {umeng:'sdfsdfsdfsdf'});
 
 //example    禁用oppo推送
-JJPush.init({oppo:true});
+JJPush.init('xxx', 'xxxx', {oppo:true});
 
 //本地通知
 JJPush.notify(title, body)

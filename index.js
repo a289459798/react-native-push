@@ -47,7 +47,7 @@ class JJPush extends NativeEventEmitter {
                 }
             });
         } else {
-            RNJJPush.init(data);
+            RNJJPush.init(data.umeng);
         }
     }
 
