@@ -47,7 +47,7 @@ class JJPush extends NativeEventEmitter {
                 }
             });
         } else {
-            RNJJPush.init(appkey);
+            RNJJPush.init(data);
         }
     }
 
