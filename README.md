@@ -1,4 +1,6 @@
 # react-native-push
+android 分别集成了华为、oppo、vivo、小米，保证android在进程杀死的情况下也能收到推送
+ios 集成的友盟推送
 
 ## Getting started
 
@@ -116,10 +118,6 @@ android:protectionLevel="signature" /> <!--这里com.xiaomi.mipushdemo改成app�
 
 - `target`的`Capabilities`选项卡添加`Push Notifications`
 - 在`Build Settings` 中的 `Other Linker Flags` 中增加 `-ObjC`
-- 在info.plist中加入
-- > MiSDKAppID {xxxxx}
-- > MiSDKAppKey {xxxxxx}
-- > MiSDKRun  {debug or online}
 
 - 在AppDelegate.h中添加
 ```c
